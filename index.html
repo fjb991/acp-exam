@@ -1,17 +1,42 @@
 <!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ACP 备考中心</title><style>
-body{font-family:-apple-system,'PingFang SC',sans-serif;margin:0;background:#16202b;color:#e8ecf2;display:flex;min-height:100vh;flex-direction:column;justify-content:center}
-.wrap{max-width:420px;margin:0 auto;padding:20px}
-h1{font-size:22px;text-align:center} p.sub{text-align:center;color:#8aa0b8;font-size:13px}
-a.card{display:block;background:#22303e;border-radius:14px;padding:18px;margin:12px 0;text-decoration:none;color:#e8ecf2;font-size:16px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-a.card small{display:block;font-weight:normal;color:#8aa0b8;font-size:12px;margin-top:4px}
-.emoji{font-size:24px;margin-right:8px}
-</style></head><body><div class="wrap">
-<h1>🎓 ACP 备考中心</h1>
-<p class="sub">大模型高级工程师认证 · 距考试倒计时</p>
-<a class="card" href="quiz.html"><span class="emoji">📝</span>刷题模式<small>142题随机出题 · 答案解析</small></a>
-<a class="card" href="bank.html"><span class="emoji">📚</span>题库全览<small>全部题目+答案+解析 · 按章分组</small></a>
-<a class="card" href="terms.html"><span class="emoji">📇</span>术语速记卡<small>42个术语 · 定义+考点提示</small></a>
-<a class="card" href="keypoints.html"><span class="emoji">🎯</span>关键考点速记卡<small>38个结论性考点 · 数字/口诀/对比/决策</small></a>
-</div></body></html>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>ACP 备考中心</title>
+<style>
+body{font-family:-apple-system,'PingFang SC',sans-serif;background:#16202b;color:#e8ecf2;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+.box{background:#22303e;padding:32px 28px;border-radius:16px;text-align:center;max-width:320px;width:88%;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.emoji{font-size:40px}
+h2{margin:10px 0 4px;font-size:18px}
+p{color:#8aa0b8;font-size:13px;margin:4px 0 16px}
+input{width:100%;box-sizing:border-box;padding:12px;font-size:18px;text-align:center;letter-spacing:6px;border:1px solid #3a4a5e;border-radius:10px;background:#16202b;color:#e8ecf2;outline:none}
+input:focus{border-color:#5b8dd9}
+button{width:100%;margin-top:12px;padding:12px;font-size:16px;border:none;border-radius:10px;background:#2a5db0;color:#fff;cursor:pointer}
+button:active{background:#1d4a94}
+#err{color:#ff8a8a;font-size:13px;min-height:18px;margin-top:10px}
+#content{display:none}
+</style></head><body>
+<div class="box" id="gate"><div class="emoji">🔒</div><h2>ACP 备考中心</h2><p>请输入访问码</p>
+<input id="pin" type="password" inputmode="numeric" maxlength="6" autofocus><br>
+<button onclick="unlock()">解锁</button><div id="err"></div></div>
+<div id="content"></div>
+<script>
+const SALT=[205,72,93,202,89,214,143,175,86,180,192,55,176,63,169,191];const CT="zzEO3aOFthYgojMKYAslas2dt/gJ77v2dmhTgxufI6ZjwRwSMkPMckpDq2t+AXt9Nm90K/pHnPDr8GpWKJz7ge8JBSSJOwf4SAADYwvdtxpOzxDQtTf9SpZYVNTblTtq8PSOpG2RcysgDK6bCr1C5AjvF9fIZEthorO1EUht4yQPqr/h4aP8I43dBIQv8HVOSMcrT7x9+NkKhHVzmgP8t7LJ7jKYPvkTRpfLGXuTlPQsjPV3z0IjN1+qgh3Us5pmIIbinjdK2HLoy9wpIyqWoolE72eIJFQdukmIZkerbMMhp/IsgKeuApmSM8g6UI8JKBX8O5BnzqGxEoAE1WBPK/ZMdo45BNFG+kHzoGTB99mXJukTKabSqQUHN63ZAGVqxZSvUgS8a8mykx753FWXSXMXzzPIV2J15SDNJvyo5RlPDQgNfTDcpj9Mu7fbud7T4sKVBoHPDzUmO5iT5ATgzupqB550a+ka7LtyxpQb8ZZAiDFJPDUw+zHF7dtkWnL2WqAtWL+y6TOh+a28LbrNMjhh7GQ2ODwrPVJcvfQ22RyvIB4Z57/I0FJL9oFfvLGzLAniuVu2xO9/fM6mSgvzNIY2zMtKctQhy6MM8A5wMDW+RBmFbKHT/+OKeNhkefRxOCf9fls+Xn6lpJ1qhmwjpY7Rr4w9WSs60EXeZ6rBRt+dvFsa7TpP8HR5Yjk3WiffbSQ6cZxFX6oFH1s8QQMvh4KOkT/8/WND96QvsMVKMtjtsw2GTthHd6wrkVC9iduSuWb4lIPHwEpMxzT4D/lIXWdSq2pKjatF1x5c886WfbqTURh9OjPxBI2Lzqbx6cHgSvCziqS4nb7Ku9BeyRC79HXmfyebyh3txe76R3PsY9Fq+RA9CtjA/jrX7usckiSKsY+Js81vioGByM3UpQBIpKJ3WdI3XN+N8ZmO197pQqIqQHJN7K+I6EUKClCw2Urf3g4MHiAw7WW7nSX/yhoStVq17NdH3ejSko/xOj4h9VpdZLEqq82E0myeuX1y9aiTboHM2FHZMcauXqv5FJwJ0IO2Vq0utcdGDQ1Wi0SN98oQI574bt8sQPQZ6g+OWeU0TxL2CxyPOuu60zxSGpgDso0LVKX+1fdr+QEuxPZdVz8fvwuuIyTEZRJripE8p6SM7vF1Y4iZ/wXukjAmwO6VQVfSqCDvorCo0Iag5eoRQ4CV8cIculllW9dWHPIB0DlmAqOCvsShxGtPHoySaTW1KOd3LbVPyF1oMAOXx8DZQ3/qRiQG6G7+ntC1lwtBT1PlJuBvTWv5ukACxSedIYNowjiNj9dDzPWo5Cl1PrCDRHJpRQjTXRlNLoEr6reUxz38q/MG57GaCgZMQORmCTAz9iEJaoLE/N1FHjggErMJDMM122aneVQTRilLFYCxGgEy/PKR467MZCzzu7R+tMKWeVhu0O8/FrhTQM99MYpRvIg+t8/6kt7r37oQJ/73D2As/S++AOXuro/1npxS41tmyuPh4GkhTZZooxZdB6d1ydOfuz9d1/9fBm407CROpn+Gax+0dHQSOu1ZJVzVuLYAHqc1WJIcfZUZyQNLoR9uZGmUFP8cjLZWhn2mq6e+BOYYebbVKAq0jyR08mRnoxkgbjJ5h4ZrZvzleehBaWZgOaGRIhXiam3lLBl6TLGNy2vV0Jl8DH6lXMYf6ESsOr5ueG339O4lDCFlC+qRn+zA8uOwWjBcp5lAXQUIu8J4NoEawUkx7cLmsudAZXI6VulsfcUuUYvzqeFIgFNi1Hyx4BTnEn4KLoyk7XTnkEcM/VfFzq1uyr9WY7nP9FOk/hNUFqSeggYo4pGH7yJGq8MVsA+du2qrTVC9e1NtRtCIZvcKMH5hiE3Vu7WrjASqedpIZmm5CAqbTn6Hp0OIeSYDd9jQm2xtm4EPFkmcNm50ezEJEwDY3BjfwhArD6s4BGhmzEUDvxmA2x3ZjEHT+5hKjruCbHi+b1T5FFTHRPY+WSxUogz9Va5Y6oGjnBzZycD4te73d3zidqrJ7j+lBhinpF9K6J4HIenyODLcvUodJx89qN+N4znYbZU=";const IV=[76,237,237,45,207,35,27,50,117,41,3,240];
+async function deriveKey(pin){
+  const enc=new TextEncoder();
+  const km=await crypto.subtle.importKey('raw',enc.encode(pin),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt:new Uint8Array(SALT),iterations:120000,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+}
+async function unlock(){
+  const pin=document.getElementById('pin').value.trim();
+  if(!pin){document.getElementById('err').textContent='请输入访问码';return;}
+  try{
+    const key=await deriveKey(pin);
+    const ct=Uint8Array.from(atob(CT),c=>c.charCodeAt(0));
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:new Uint8Array(IV)},key,ct);
+    document.getElementById('gate').style.display='none';
+    const c=document.getElementById('content');c.style.display='block';
+    c.innerHTML=new TextDecoder().decode(pt);
+    sessionStorage.setItem('acp_pin',pin);
+  }catch(e){document.getElementById('err').textContent='访问码错误';}
+}
+document.getElementById('pin').addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
+(function(){const p=sessionStorage.getItem('acp_pin');if(p){document.getElementById('pin').value=p;unlock();}})();
+</script></body></html>
